@@ -39,7 +39,6 @@ public class ShootingController : MonoBehaviour
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, Mathf.Infinity))
         {
             Debug.Log("Hit " + hit.transform.name);
-            Debug.DrawRay(PlayerCamera.transform.position, PlayerCamera.transform.forward, Color.green, 5f);
             Debug.DrawLine(PlayerCamera.transform.position, hit.point, Color.red, 5f);
         }
         m_LastShotTime = Time.time;
