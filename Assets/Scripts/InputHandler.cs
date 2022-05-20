@@ -6,6 +6,10 @@ public class InputHandler : MonoBehaviour
 {
     [Tooltip("Sensitivity multiplier for moving the camera around")]
     public float LookSensitivity = 1f;
+    [Tooltip("Limit to consider an input when using a trigger on a controller")]
+    public float TriggerAxisThreshold = 0.4f;
+
+    bool m_FireInputWasHeld;
 
     void Start()
     {
@@ -60,4 +64,13 @@ public class InputHandler : MonoBehaviour
         return 0f;
     }
 
+    public bool GetFireInput()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetButton(GameConstants.k_ButtonNameFire);
+        }
+
+        return false;
+    }
 }
