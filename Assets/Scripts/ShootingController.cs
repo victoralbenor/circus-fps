@@ -9,6 +9,8 @@ public class ShootingController : MonoBehaviour
     public float FireCooldown = 0.5f;
     [Tooltip("Player Camera")]
     public Camera PlayerCamera;
+    [Tooltip("Impact Effects")]
+    public GameObject ImpactEffects;
 
     InputHandler m_InputHandler;
     float m_LastShotTime = 0;
@@ -40,6 +42,8 @@ public class ShootingController : MonoBehaviour
         {
             Debug.Log("Hit " + hit.transform.name);
             Debug.DrawLine(PlayerCamera.transform.position, hit.point, Color.red, 5f);
+            GameObject effects = Instantiate(ImpactEffects, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(effects, 3f);
         }
         m_LastShotTime = Time.time;
     }
