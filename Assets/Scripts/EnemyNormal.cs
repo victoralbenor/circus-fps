@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyA : EnemyBase
+public class EnemyNormal : EnemyBase
 {
-
+    
 }
