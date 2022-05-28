@@ -7,21 +7,23 @@ public class ShootingController : MonoBehaviour
 {
     [Tooltip("Time between each shot")]
     public float FireCooldown = 0.5f;
+
     [Tooltip("Player Camera")]
     public Camera PlayerCamera;
+
     [Tooltip("Impact Effects")]
     public GameObject ImpactEffects;
 
-    InputHandler m_InputHandler;
-    float m_LastShotTime = 0;
+    private InputHandler m_InputHandler;
+    private float m_LastShotTime = 0;
 
-    void Start()
+    private void Start()
     {
         m_InputHandler = GetComponent<InputHandler>();
         m_LastShotTime = 0;
     }
 
-    void Update()
+    private void Update()
     {
         if (m_InputHandler.GetFireInput() && CanShoot())
         {
@@ -30,23 +32,19 @@ public class ShootingController : MonoBehaviour
 
     }
 
-    bool CanShoot()
+    private bool CanShoot()
     {
         return Time.time - m_LastShotTime > FireCooldown;
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out var hit, Mathf.Infinity))
         {
-            Debug.Log("Hit " + hit.transform.name);
             Debug.DrawLine(PlayerCamera.transform.position, hit.point, Color.red, 5f);
-            GameObject effects = Instantiate(ImpactEffects, hit.point, Quaternion.LookRotation(hit.normal));
+            var effects = Instantiate(ImpactEffects, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(effects, 3f);
         }
         m_LastShotTime = Time.time;
     }
-
-
 }
