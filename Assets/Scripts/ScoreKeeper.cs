@@ -12,10 +12,11 @@ public class ScoreKeeper : ScriptableObject
     {
         LastScore = score;
 
-        if (score <= HighScores[HighScoresLength]) return;
+        if (score <= HighScores[HighScoresLength - 1]) return;
         // If current score is enough to make the rank, add it, sort the rank and remove exceeding scores
         HighScores.Add(score);
         HighScores.Sort();
+        HighScores.Reverse();
         if (HighScores.Count > HighScoresLength)
             HighScores.RemoveRange(HighScoresLength, HighScores.Count - HighScoresLength);
     }

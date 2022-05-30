@@ -9,6 +9,7 @@ public class EnemyA : EnemyBase
     protected override void Die()
     {
         SpawnEnemies();
+        WarnSpawnerAboutDeath();
         Destroy(gameObject);
     }
 
@@ -17,7 +18,10 @@ public class EnemyA : EnemyBase
         foreach (var enemy in EnemiesToSpawn)
         {
             var instantiatedEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-            instantiatedEnemy.GetComponent<EnemyBase>().GoalPoint = this.GoalPoint;
+            var enemyBase = instantiatedEnemy.GetComponent<EnemyBase>();
+            enemyBase.GoalPoint = this.GoalPoint;
+            enemyBase.SetSpawnerOrigin(m_MySpawner);
+            m_MySpawner.NewEnemySpawned();
         }
     }
 }

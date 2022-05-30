@@ -13,6 +13,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Tooltip("Where the enemy is going to")]
     public Transform GoalPoint;
 
+    protected EnemySpawner m_MySpawner;
+    
     protected virtual void Start()
     {
         GetComponent<NavMeshAgent>().destination = GoalPoint.position;
@@ -32,6 +34,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     protected virtual void Die()
     {
+        WarnSpawnerAboutDeath();
         Destroy(gameObject);
     }
     
@@ -39,6 +42,16 @@ public class EnemyBase : MonoBehaviour, IDamageable
     {
         var effects = Instantiate(DamageParticles, transform.position, Quaternion.identity);
         Destroy(effects, 3f);
+    }
+
+    public void SetSpawnerOrigin(EnemySpawner enemySpawner)
+    {
+        m_MySpawner = enemySpawner;
+    }
+
+    public void WarnSpawnerAboutDeath()
+    {
+        m_MySpawner.EnemyDied();
     }
     
 }

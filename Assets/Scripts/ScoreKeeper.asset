@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9a6dbf1eaf8f54b92a7f4916bba266, type: 3}
   m_Name: ScoreKeeper
   m_EditorClassIdentifier: 
-  HighScores: 
-  HighScoresLength: 0
-  LastScore: 0
+  HighScores: 1e000000140000000a000000
+  HighScoresLength: 3
+  LastScore: 5
