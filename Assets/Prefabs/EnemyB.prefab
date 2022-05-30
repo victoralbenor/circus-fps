@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7775846099477223877}
   - component: {fileID: 7004754638181384151}
   - component: {fileID: 3030073225668797310}
-  - component: {fileID: 6961097551767543868}
   - component: {fileID: -3714009092305225553}
   - component: {fileID: 5220074802574898754}
+  - component: {fileID: 1964599484269799094}
   m_Layer: 0
-  m_Name: EnemyA
+  m_Name: EnemyB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5dacc1bc9b43dc3418fdf42329503fb3, type: 2}
+  - {fileID: 2100000, guid: 721279b35b4df1144b2e578c064823e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,24 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6961097551767543868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6961097551767543859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a8f37a401c97814c85e1bbc1d4248a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DamageParticles: {fileID: 8558996015183662527, guid: 862721e0283d6a440a98d14e69425079, type: 3}
-  ScoreValue: 10
-  GoalPoint: {fileID: 0}
-  EnemiesToSpawn:
-  - {fileID: 6961097551767543859, guid: eff4ecd4e0b87bd489f2e6486c11ea23, type: 3}
-  - {fileID: 6961097551767543859, guid: eff4ecd4e0b87bd489f2e6486c11ea23, type: 3}
 --- !u!195 &-3714009092305225553
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -139,3 +121,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1964599484269799094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961097551767543859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ab6a41e5e249e4d9ee9e5f65cef57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageParticles: {fileID: 8558996015183662527, guid: 862721e0283d6a440a98d14e69425079, type: 3}
+  ScoreValue: 15
+  GoalPoint: {fileID: 0}
+  EnemiesToSpawn:
+  - {fileID: 6961097551767543859, guid: eff4ecd4e0b87bd489f2e6486c11ea23, type: 3}
+  - {fileID: 6961097551767543859, guid: eff4ecd4e0b87bd489f2e6486c11ea23, type: 3}
+  - {fileID: 6961097551767543859, guid: eff4ecd4e0b87bd489f2e6486c11ea23, type: 3}
+  Health: 3

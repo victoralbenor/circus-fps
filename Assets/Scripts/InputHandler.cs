@@ -63,4 +63,14 @@ public class InputHandler : MonoBehaviour
 
         return false;
     }
+    
+    public bool GetAlternativeFireInput()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetButton(GameConstants.k_ButtonNameAlternativeFire);
+        }
+
+        return false;
+    }
 }
